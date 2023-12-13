@@ -1,0 +1,16 @@
+{
+  "name": "tilstalk_back",
+  "version": "1.0.0",
+  "description": "Este é o backend do projeto TILStack, desenvolvido com Node.js e utilizando o MongoDB como banco de dados. O TILStack é uma aplicação para compartilhar pequenos aprendizados diários (Today I Learned - TIL).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}
