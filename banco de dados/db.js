@@ -13,10 +13,11 @@ const conectarDados = async () => {
         return mongoose
     }
     catch (error) {
-        console.log(error)
-    }
+        console.error("Erro ao conectar ao banco de dados:", error);
+        throw error;  // Rejeita a Promise em caso de erro para que seja tratado onde for chamado.
+     }
 
 
 };
 
-module.exports = conectarDados()
+module.exports = conectarDados;
