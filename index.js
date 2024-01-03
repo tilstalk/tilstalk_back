@@ -1,12 +1,16 @@
 const express = require ('express');
-const app = express();
-const port = 3000;
+const cors = require("cors")
 
-app.get('/', (req, res) => {
-  res.send('olá, sou Node.js!')
-});
+require("dotenv").config()
+
+const app = express();
+
+app.use(cors())
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Servidor está rodando na porta ${port}`);
+  console.log(`Servidor está rodando na porta: ${port}`);
 });
 
+require("./banco de dados/db")

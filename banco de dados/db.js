@@ -1,23 +1,25 @@
-const mongoose = require('mongoose');
-const dotenv = require("dotenv");
-dotenv.config();
+const mongoose = require("mongoose");
 
 
-const conectarDados = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_DB, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-        console.log("conectado no banco de dados")
-        return mongoose
-    }
-    catch (error) {
-        console.error("Erro ao conectar ao banco de dados:", error);
-        throw error;  // Rejeita a Promise em caso de erro para que seja tratado onde for chamado.
-     }
+// Database connection URL
+const dbUrl = process.env.DB_USER;
+const dbPassword = process.env.DB_PASS;
 
+// Connect to the database
+const connect = () => {
+  mongoose.connect(`mongodb+srv://${dbUrl}:${dbPassword}@cluster.8gsutur.mongodb.net/test?retryWrites=true&w=majority`)
 
-};
+  const connection = mongoose.connection;
+  
+  connection.on("error", () => {
+    console.error("don't Connected to the database");
+  })
 
-module.exports = conectarDados;
+  connection.on("open", () => {
+    console.log("Connected to the database");
+  })
+
+}
+
+connect();
+module.exports = mongoose;
