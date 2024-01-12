@@ -5,13 +5,14 @@ require("dotenv").config()
 
 const app = express();
 
-app.use(cors())
-app.use(express.json())
 
+app.use(express.json())
+app.use(cors())
 const AuthRegisterUserRoutes = require("./routes/AuthRegisterUserRoutes")
+const LoginRoutes = require("./routes/LoginRoutes")
 
 app.use(AuthRegisterUserRoutes)
-
+app.use(LoginRoutes)
 
 const port = process.env.PORT || 3000;
 

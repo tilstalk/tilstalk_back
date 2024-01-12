@@ -1,3 +1,4 @@
 
 DB_USER = username
 DB_PASS = password
+SECRET = password
