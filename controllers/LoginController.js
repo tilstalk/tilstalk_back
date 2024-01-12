@@ -21,8 +21,8 @@ module.exports = class LoginController {
         try {
             user = await User.findOne({email: email})
         } catch(error){
-            console.error(err)
-            res.send("error", err)
+            console.error(error)
+            res.send("error", error)
         }
 
         if(!user){
